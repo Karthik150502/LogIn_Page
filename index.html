@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=M+PLUS+1p:wght@100&family=Montserrat:wght@200&family=Oswald:wght@300&display=swap" rel="stylesheet">
+
+</head>
+<style>
+
+    *{
+        font-weight: 750;
+        font-size: 12px;
+        font-family: 'Cinzel', serif;
+        font-family: 'M PLUS 1p', sans-serif;
+    }
+    body{
+        background-color: black;
+        background: url("https://wallpapercave.com/dwp2x/wp7396572.jpg");
+        display: flex;
+        background-size: cover;
+        background-repeat: no-repeat;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    #glowingball{
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        box-shadow:
+            inset 0 0 50px #fff,      /* inner white */
+            inset 20px 0 80px #f0f,   /* inner left magenta short */
+            inset -20px 0 80px #0ff,  /* inner right cyan short */
+            inset 20px 0 300px #f0f,  /* inner left magenta broad */
+            inset -20px 0 300px #0ff, /* inner right cyan broad */
+            0 0 50px #fff,            /* outer white */
+            -10px 0 80px #f0f,        /* outer left magenta */
+            10px 0 80px #0ff;         /* outer right cyan */
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        z-index: -1;
+        transition: all 10s ease-in-out;
+    }
+    #main{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 25px;
+    }
+
+    #main1 *{
+        color: white;
+        transition: all 0.3s ease-in;
+        margin: 5px;
+    }
+
+
+
+
+
+    #main1{
+        background-color: rgba(255, 255, 255, .15);  
+        backdrop-filter:saturate(200%) blur(5px);
+        border: none;
+        border-radius: 30px;
+        padding:20px;
+        height: 150px;
+        display:flex;
+        justify-content: space-evenly;
+        align-items:center;
+        position: relative;
+        top: 0px;
+        width: 225px;
+        height: 525px;
+    }
+
+    #main1 input{
+        color: white;
+        background-color: black;
+        border:none; 
+        border-radius: 10px;
+        width: 200px;
+
+
+            &.error
+        {
+        animation: shake 0.2s ease-in-out 0s 2;
+        box-shadow: 0 0 0.5em red;
+        }
+        }
+        @keyframes shake {
+        0% { margin-left: 0rem; }
+        25% { margin-left: 0.5rem; }
+        75% { margin-left: -0.5rem; }
+        100% { margin-left: 0rem; }
+    }
+
+
+
+    #spd1{
+        display: flex;
+        place-items: center; 
+        align-items: center;
+        flex-wrap: wrap; 
+        height: 20px;
+        width:100px;  
+    }
+        
+    
+    #main1 button{
+        background-color: black;
+        color: white;
+    }
+    #btns1{
+        display: flex;
+        place-items: center; 
+        align-items: center;
+        flex-wrap: wrap; 
+        position: relative;
+        top: 10px;
+        left: 70px;
+    }
+    #passwordver{
+        font-size: 10px;
+        color: black;
+    }
+
+    #alrt, #alrt1, #alrt2, #alrt3, #alrt4{
+        font-size: 10px;
+        font-weight:bolder;
+        color: red;
+    }
+    #nextbtn1{
+        position: relative;
+        left: 85px;
+        top: -20px;
+        border: none;
+        border-radius: 10px;
+    }
+
+    #main2 *{
+        margin: 5px;
+        transition: all 0.3s ease-in;
+    }
+
+    #main2{
+        background-color: rgba(255, 255, 255, .15);  
+        backdrop-filter:saturate(200%) blur(5px);
+        display: none;
+        border: none;
+        border-radius: 30px;
+        padding:20px;
+        height: 150px;
+        justify-content: space-evenly;
+        align-items:flex-start;
+        position: relative;
+        top: 50px;
+        width: 225px;
+        height: 175px;
+    }
+
+
+
+    #main2 input{
+        background-color: black;
+        border:none; 
+        border-radius: 10px;
+        &.error
+        {
+        animation: shake 0.2s ease-in-out 0s 2;
+        box-shadow: 0 0 0.5em red;
+        }
+        }
+        @keyframes shake {
+        0% { margin-left: 0rem; }
+        25% { margin-left: 0.5rem; }
+        75% { margin-left: -0.5rem; }
+        100% { margin-left: 0rem; }
+    }
+    #main2 input{
+        color: white;
+        background-color: black;
+        border:none; 
+        border-radius: 10px;
+        width: 200px;
+    }
+    #main2 button{
+        background-color: black;
+        color: white;
+    }
+    #btns2{
+        display:inline-block;
+        position: absolute;
+        top: 80%;
+        left: 30%;
+    }
+    #nextbtn2, #backbtn{
+        border: none;
+        border-radius: 10px;
+    }
+
+    #spd2{
+        display: flex;
+        place-items: center; 
+        align-items: center;
+        flex-wrap: wrap; 
+        height: 20px;
+        width:100px;  
+    }
+</style>
+<body>
+    <div id="main">
+        <div id="glowingball">
+
+        </div>
+        <div id="main1">
+            <form id="frm1">
+                First name <input  id="firstname" onChange="removeError()"  type="text"><h5 class="alrts" id="alrt"></h5>
+                Last name <input id="lastname" type="text"><h5 class="alrts" id="alrt1"></h5>
+                Email <input id="email" type="text"><h5 class="alrts" id="alrt2"></h5>
+                Phone no. <input id="phno" type="text"><h5 class="alrts" id="alrt3"></h5>
+                Username <input id="username1" type="text">
+                Password <input id="pass_1_1" type="password"><h5 class="alrts" id="alrt4"></h5>
+                <h3 id="passwordver">
+                    Password must be more than 8 characters and less than 16 characters, and must contain a special character and a number.
+                </h3>
+                Confirm password <input id="pass_1_2" type="password">
+                                
+                <div id="spd1">
+                    <input onclick="showpass1()" id="show1" type="checkbox">show password!
+                </div>
+
+                <div id="btns1">
+                    <button onclick="return loginappear()" type="button" id="nextbtn1">next!</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="main2">
+            <!-- "https://pyspiders.com/" -->
+            <form action="https://pyspiders.com/" id="frm2">
+                Username <input type="text" id="usrname"> 
+    
+                <div id="pw">
+                    Password <input type="password" id="pssword">
+                    
+                    <div id="spd2">
+                        <input onclick="showpass2()" id="show2" type="checkbox">show password!
+                    </div>
+                    
+                </div>
+                <div id="btns2">
+                    <button id="nextbtn2" type="submit" onclick="return validate()">next</button>
+                    <button id="backbtn" type="reset" onclick="return backfunc()">back</button>    
+                </div>
+    
+            </form>
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+
+
+            const loginappear=()=>{
+                
+                let firstn = document.getElementById('firstname').value
+                let lastn = document.getElementById('lastname').value
+                let emailid = document.getElementById('email').value
+                let phn = document.getElementById('phno').value
+                let usrn = document.getElementById('username1').value
+                let pass_1 = document.getElementById('pass_1_1').value
+                let pass_2 = document.getElementById('pass_1_2').value
+
+
+                if (firstn===''||firstn===null){
+                    let element = document.getElementById('firstname');
+                    let addError = function() { element.classList.add('error'); };
+                    let removeError = function() { element.classList.remove('error'); };
+
+                    document.getElementById('alrt').innerHTML =  "Enter first name!"
+
+
+
+
+                    document.getElementById("firstname").style.border = "2px solid red"
+
+
+                    addError()
+                    return false
+                }
+
+                if (lastn===''||lastn===null){
+
+                    let element = document.getElementById('lastname');
+                    let addError = function() { element.classList.add('error'); };
+                    let removeError = function() { element.classList.remove('error'); };
+
+
+                    document.getElementById('alrt1').innerHTML =  "Enter last name!"
+
+
+                    document.getElementById("lastname").style.border = "2px solid red"
+
+
+
+                    addError()
+
+                    return false
+                }
+                
+                if(emailid.indexOf("@") == 0){
+
+                    let element = document.getElementById('email');
+                    let addError = function() { element.classList.add('error'); };
+                    let removeError = function() { element.classList.remove('error'); };
+
+                    document.getElementById('alrt2').innerHTML = "Enter valid email id"
+
+                    document.getElementById("email").style.border = "2px solid red"
+
+
+                    addError()
+                    return false
+                }
+
+                
+                if(emailid.charAt(emailid.length - 4)!=='.' && emailid.charAt(emailid.length - 3)!=='.'){
+
+                    
+                    let element = document.getElementById('email');
+                    let addError = function() { element.classList.add('error'); };
+                    let removeError = function() { element.classList.remove('error'); };
+
+                    document.getElementById('alrt2').innerHTML = "Enter valid email id"
+
+
+                    document.getElementById("email").style.border = "2px solid red"
+
+                    addError()
+                    addError()
+                    return false
+                }
+
+
+                if (phn === '' || phn === null){
+                    
+                    
+                    let element = document.getElementById('phno');
+                    let addError = function() { element.classList.add('error'); };
+                    let removeError = function() { element.classList.remove('error'); };
+                
+                    document.getElementById('alrt3').innerHTML = "Enter Phone Number!"
+
+
+
+
+                    document.getElementById("phno").style.border = "2px solid red"
+
+
+                    addError()
+                    return false
+                }
+
+                if(isNaN(phn)){
+                    let element = document.getElementById('phno');
+                    let addError = function() { element.classList.add('error'); };
+                    let removeError = function() { element.classList.remove('error'); };
+
+                    document.getElementById('alrt3').innerHTML = "Enter valid phone number!"
+
+
+
+                    document.getElementById("phno").style.border = "2px solid red"
+
+
+
+                    addError()
+                    return false
+                }
+
+                if(phn.length!==10){
+                                        
+                    let element = document.getElementById('phno');
+                    let addError = function() { element.classList.add('error'); };
+                    let removeError = function() { element.classList.remove('error'); };
+
+                    document.getElementById('alrt3').innerHTML = "Enter valid phone number!"
+
+
+
+                    document.getElementById("phno").style.border = "2px solid red"
+
+
+
+                    addError()
+                    return false
+                }
+
+                if (pass_1 === ''|| pass_1 == null){
+                    let element = document.getElementById('pass_1_1');
+                    let addError = function() { element.classList.add('error'); };
+                    let removeError = function() { element.classList.remove('error'); };
+
+                    document.getElementById('alrt4').innerHTML = "Enter password!"
+
+
+
+
+                    document.getElementById("pass_1_1").style.border = "2px solid red"
+
+
+
+                    addError()
+                    return false
+                }
+
+                
+                if (pass_1.length < 8 || pass_1.length > 16){
+
+                    let element = document.getElementById('pass_1_1');
+                    let addError = function() { element.classList.add('error'); };
+                    let removeError = function() { element.classList.remove('error'); };
+
+
+                    document.getElementById("pass_1_1").style.border = "2px solid red"
+
+
+
+                    document.getElementById('alrt4').innerHTML = "Password must be above 8 characters and less than 16 characters!"
+                    
+
+
+                    addError()
+                    return false
+                }
+
+                if (!pass_1.includes('!') && !pass_1.includes('@') && !pass_1.includes('#') && !pass_1.includes('$') && !pass_1.includes('%') && !pass_1.includes('^') && !pass_1.includes('&') && !pass_1.includes('&') && !pass_1.includes('*') && !pass_1.includes('(') && !pass_1.includes(')') && !pass_1.includes('_') && !pass_1.includes('-') && !pass_1.includes('+') && !pass_1.includes('=')){
+
+
+                    
+                    let element = document.getElementById('pass_1_1');
+                    let addError = function() { element.classList.add('error'); };
+                    let removeError = function() { element.classList.remove('error'); };
+
+                    document.getElementById("pass_1_1").style.border = "2px solid red"
+
+
+                    document.getElementById('alrt4').innerHTML = "Password must contain a special character"
+
+
+                    addError()
+                    return false
+                }
+
+                if (!pass_1.includes('1') && !pass_1.includes('2') && !pass_1.includes('3') && !pass_1.includes('4') && !pass_1.includes('5') && !pass_1.includes('6') && !pass_1.includes('7') && !pass_1.includes('8') && !pass_1.includes('9') && !pass_1.includes('0')){
+
+                                        
+                    let element = document.getElementById('pass_1_1');
+                    let addError = function() { element.classList.add('error'); };
+                    let removeError = function() { element.classList.remove('error'); };
+
+                    document.getElementById("pass_1_1").style.border = "2px solid red"
+                    document.getElementById('alrt4').innerHTML = "Password must contain a number!"
+
+                    
+                    addError()
+                    return false
+                }
+
+                if(pass_1!==pass_2){
+                                                            
+                    let element = document.getElementById('pass_1_1');
+                    let addError = function() { element.classList.add('error'); };
+                    let removeError = function() { element.classList.remove('error'); };
+
+                    document.getElementById("pass_1_1").style.border = "2px solid red"
+                    document.getElementById("pass_1_2").style.border = "2px solid red"
+
+
+                    document.getElementById('alrt4').innerHTML = "Passwords not matching!"
+
+                    
+
+
+
+
+                    addError()
+                    return false
+                }
+
+                else{
+                    // document.getElementById("main1").style.display = 'none'  
+                    // document.getElementById("main2").style.display = 'flex' 
+                    // alert("Success")  
+
+                    document.getElementById('username1').value
+                    document.getElementById('pass_1_1').value
+
+                    let one = document.getElementById("main1")
+                    let two = document.getElementById("main2")
+
+                    document.getElementById("phno").style.border = "none"
+                    document.getElementById("email").style.border = "none"
+                    document.getElementById("email").style.border = "none"
+                    document.getElementById("lastname").style.border = "none"
+                    document.getElementById("firstname").style.border = "none"
+                    document.getElementById("pass_1_1").style.border = "none"
+                    document.getElementById("pass_1_2").style.border = "none"
+
+
+
+                    document.getElementById('alrt').innerHTML =  ""
+                    document.getElementById('alrt1').innerHTML =  ""
+                    document.getElementById('alrt2').innerHTML =  ""
+                    document.getElementById('alrt3').innerHTML =  ""
+                    document.getElementById('alrt4').innerHTML = ""
+
+
+                    // document.getElementById("main1").style.display = 'flex'
+                    // document.getElementById("main2").style.display ='none'
+
+                    one.style.display = 'none' 
+                    two.style.display = 'flex' 
+
+                    return true
+                }
+            }
+
+
+
+
+            const validate=()=>{
+                    let username = document.getElementById('usrname').value
+                    let password = document.getElementById('pssword').value
+
+                    if ((username === '' || username === null) && (password===''||password===null)){
+
+                        let element = document.getElementById('usrname');
+                        let addError = function() { element.classList.add('error'); };
+                        let removeError = function() { element.classList.remove('error'); };
+
+
+                        // alert("Enter valid username!")
+
+                        addError()
+                        return false
+                    }
+
+                    else if (username!==document.getElementById('username1').value && password!==document.getElementById('pass_1_1').value){
+                        let element = document.getElementById('usrname');
+                        let addError = function() { element.classList.add('error'); };
+                        let removeError = function() { element.classList.remove('error'); };
+
+                        let element2 = document.getElementById('pssword');
+                        let addError2 = function() { element.classList.add('error'); };
+                        let removeError2 = function() { element.classList.remove('error'); };
+
+                    
+                        addError()
+                        addError2()
+                        
+                        return false
+                    }
+
+                    else if(username===document.getElementById('username1').value && password!==document.getElementById('pass_1_1').value){
+
+                        let element = document.getElementById('pssword');
+                        let addError = function() { element.classList.add('error'); };
+                        let removeError = function() { element.classList.remove('error'); };
+
+                        // alert("Incorrect password!")
+
+
+                        addError()
+                        return false
+                    }
+
+                    else if(password===document.getElementById('pass_1_1').value && username!==document.getElementById('username1').value){
+
+
+                        let element = document.getElementById('usrname');
+                        let addError = function() { element.classList.add('error'); };
+                        let removeError = function() { element.classList.remove('error'); };
+
+                        // alert("Incorrect Username!")
+
+
+                        addError()
+                        return false
+                    }
+
+                    else{
+                        let main_2 = document.getElementById('main')
+                        
+                        document.getElementById("main2").style.border = "2px solid green"
+
+                        main_2.style.translate = '1500px'
+                        return true
+                    }
+        }
+
+
+
+        const showpass2=()=>{
+            let p = document.getElementById('pssword')
+            let password = document.getElementById('pssword').value
+            if(password===''||password===null){
+                alert("Enter the password!")
+                return false
+            }
+            else if(p.type=='text'){
+                p.type='password'
+            }
+            else{
+                p.type = 'text'
+            }
+        }
+
+
+        const backfunc=()=>{
+            let one = document.getElementById("main1")
+            let two = document.getElementById("main2")
+            two.style.display = 'none'
+            one.style.display = 'flex'
+        }
+
+        const showpass1=()=>{
+            let p = document.getElementById('pass_1_1')
+            let p2 = document.getElementById('pass_1_2')
+            let password = document.getElementById('pass_1_1').value
+            
+
+            if(password===''||password===null ){
+                alert("Enter the password!")
+                return false
+            }
+            if(p.type=='text'){
+                p.type='password'
+                p2.type='password'
+
+            }
+            else{
+                p.type = 'text'
+                p2.type = 'text'
+
+            }
+        }
+    </script>
+</body>
+</html>
